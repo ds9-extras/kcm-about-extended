@@ -29,4 +29,5 @@ public:
   QString openGLVersion;
   QString kwinDriver;
   QString displayServerVersion;
+  QString waylandVersion;
 };

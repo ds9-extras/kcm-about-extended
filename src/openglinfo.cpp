@@ -36,4 +36,7 @@ OpenGLInfo::OpenGLInfo()
   }
 
   context.doneCurrent();
+
+  // FIXME: Make this a runtime thing
+  waylandVersion = WAYLAND_VERSION;
 }
