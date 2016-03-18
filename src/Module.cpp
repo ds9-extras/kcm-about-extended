@@ -205,7 +205,6 @@ void Module::load()
     }
 
     QString network = networkStatus();
-    qCritical() << network;
     if (!network.isEmpty()) {
       ui->networkLabel->setText(network);
     } else {
