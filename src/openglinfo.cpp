@@ -30,12 +30,15 @@ OpenGLInfo::OpenGLInfo()
     // When renderer string is empty, try falling back to the EGL Platform
     if (platform->glRendererString().isEmpty()) {
       platform->detect(KWin::EglPlatformInterface);
-    } else {
+    }
+
+    if (platform->glRendererString().isEmpty()) {
       qCritical() << "Neither GLX or EGL detection worked!";
     }
 
     openGLRenderer = QString::fromUtf8(platform->glRendererString());
     openGLVersion = QString::fromUtf8(platform->glVersionString());
+    qDebug() << platform->glRendererString().isEmpty();
     if (platform->driver() == KWin::Driver::Driver_Unknown) {
       kwinDriver = (char *) glGetString(GL_VENDOR);
     } else {
