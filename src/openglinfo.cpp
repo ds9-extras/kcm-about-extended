@@ -26,9 +26,21 @@ OpenGLInfo::OpenGLInfo()
   if (context.makeCurrent(&surface)) {
     KWin::GLPlatform *platform = KWin::GLPlatform::instance();
     platform->detect(KWin::GlxPlatformInterface);
+
+    // When renderer string is empty, try falling back to the EGL Platform
+    if (platform->glRendererString().isEmpty()) {
+      platform->detect(KWin::EglPlatformInterface);
+    } else {
+      qCritical() << "Neither GLX or EGL detection worked!";
+    }
+
     openGLRenderer = QString::fromUtf8(platform->glRendererString());
     openGLVersion = QString::fromUtf8(platform->glVersionString());
-    kwinDriver = KWin::GLPlatform::driverToString(platform->driver());
+    if (platform->driver() == KWin::Driver::Driver_Unknown) {
+      kwinDriver = (char *) glGetString(GL_VENDOR);
+    } else {
+      kwinDriver = KWin::GLPlatform::driverToString(platform->driver());
+    }
     displayServerVersion = KWin::GLPlatform::versionToString(platform->serverVersion());
   }
   else {

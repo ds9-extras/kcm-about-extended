@@ -21,7 +21,8 @@ target_link_libraries(kcm_about_extended
     KF5::Solid
     KF5::KDELibs4Support
     KF5::NetworkManagerQt
-    kwinglutils)
+    kwinglutils
+    ${epoxy_LIBRARY})
 
 install(TARGETS kcm_about_extended DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES about-extended.desktop DESTINATION ${SERVICES_INSTALL_DIR})
