@@ -113,6 +113,18 @@ void Module::load()
     else
         logo = QPixmap(logoPath);
     ui->logoLabel->setPixmap(logo);
+    QPixmap softwareLogo;
+    QPixmap hardwareLogo;
+    QPixmap graphicsLogo;
+    QPixmap networkLogo;
+    softwareLogo = QIcon::fromTheme(QStringLiteral("computer")).pixmap(48, 48);
+    hardwareLogo = QIcon::fromTheme(QStringLiteral("cpu")).pixmap(48, 48);
+    graphicsLogo = QIcon::fromTheme(QStringLiteral("video-display")).pixmap(48, 48);
+    networkLogo = QIcon::fromTheme(QStringLiteral("preferences-system-network")).pixmap(48, 48);
+    ui->softwareLogo->setPixmap(softwareLogo);
+    ui->hardwareLogo->setPixmap(hardwareLogo);
+    ui->graphicsLogo->setPixmap(graphicsLogo);
+    ui->networkLogo->setPixmap(networkLogo);
 
     OSRelease os;
     // We allow overriding of the OS name for branding purposes.
