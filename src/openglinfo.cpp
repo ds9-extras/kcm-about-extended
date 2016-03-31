@@ -25,11 +25,11 @@ OpenGLInfo::OpenGLInfo()
 
   if (context.makeCurrent(&surface)) {
     KWin::GLPlatform *platform = KWin::GLPlatform::instance();
-    platform->detect(KWin::GlxPlatformInterface);
 
-    // When renderer string is empty, try falling back to the EGL Platform
-    if (platform->glRendererString().isEmpty()) {
+    if (context.isOpenGLES()) {
       platform->detect(KWin::EglPlatformInterface);
+    } else {
+      platform->detect(KWin::GlxPlatformInterface);
     }
 
     if (platform->glRendererString().isEmpty()) {
