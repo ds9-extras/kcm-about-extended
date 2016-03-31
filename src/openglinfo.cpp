@@ -12,12 +12,8 @@
 OpenGLInfo::OpenGLInfo()
 {
   QOpenGLContext context;
-  QSurfaceFormat format;
   QOffscreenSurface surface;
   surface.create();
-  format.setMajorVersion(3);
-  format.setMinorVersion(2);
-  context.setFormat(format);
   if (!context.create()) {
       qCritical() << "Could not create QOpenGLContext";
       return;
