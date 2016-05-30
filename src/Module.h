@@ -72,7 +72,7 @@ private:
     QString appsVersion() const;
 
     /** \returns Network status or empty string when it fails */
-    QString networkStatus() const;
+    void networkStatus();
 };
 
 #endif // MODULE_H

@@ -132,7 +132,7 @@ void Module::load()
     // as a product brand is different from Kubuntu.
     QString distroName = cg.readEntry("Name", os.name);
     ui->nameVersionLabel->setText(QStringLiteral("%1 %2").arg(distroName, os.versionId));
-    
+
     // Set buildLabel from versionID (OSRelease)
     ui->buildLabel->setText(os.versionId);
 
@@ -219,13 +219,7 @@ void Module::load()
       ui->displayServerVersion->setHidden(true);
     }
 
-    QString network = networkStatus();
-    if (!network.isEmpty()) {
-      ui->networkLabel->setText(network);
-    } else {
-      ui->network->setHidden(true);
-      ui->networkLabel->setHidden(true);
-    }
+    connect(NetworkManager::notifier(), &NetworkManager::Notifier::connectivityChanged, this, &Module::networkStatus);
 }
 
 void Module::save()
@@ -276,16 +270,15 @@ QString Module::appsVersion() const
   return kdeapps_version;
 }
 
-QString Module::networkStatus() const
+void Module::networkStatus()
 {
   NetworkManager::Connectivity connectivity = NetworkManager::connectivity();
   switch (connectivity) {
      case NetworkManager::Full:
-         return i18n("You are online");
+         ui->networkLabel->setText(i18n("You are online"));
+         break;
      case NetworkManager::NoConnectivity:
-         return i18n("You are offline");
-     case NetworkManager::UnknownConnectivity:
-     default:
-         return QString();
+         ui->networkLabel->setText(i18n("You are offline"));
+         break;
   }
 }
