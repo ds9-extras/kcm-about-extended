@@ -33,7 +33,7 @@
 #include <KFormat>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <kdeversion.h>
+#include <KCoreAddons>
 
 #include <Solid/Device>
 #include <Solid/Processor>
@@ -153,8 +153,7 @@ void Module::load()
     }
 
     ui->qtLabel->setText(qVersion());
-    #warning FIXME: Use KCoreAddons::versionString when it gets released in KDE Frameworks 5.20. See https://git.reviewboard.kde.org/r/127031/
-    ui->frameworksLabel->setText(KDE::versionString());
+    ui->frameworksLabel->setText(KCoreAddons::versionString());
 
     QString apps = appsVersion();
     if (!apps.isEmpty()) {
