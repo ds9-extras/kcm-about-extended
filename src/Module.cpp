@@ -279,5 +279,8 @@ void Module::networkStatus()
      case NetworkManager::NoConnectivity:
          ui->networkLabel->setText(i18n("You are offline"));
          break;
+    default:
+        ui->networkLabel->setText(i18n("Network connectivity is unknown"));
+        break;
   }
 }
