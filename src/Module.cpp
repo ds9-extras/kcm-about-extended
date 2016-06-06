@@ -133,8 +133,9 @@ void Module::load()
     QString distroName = cg.readEntry("Name", os.name);
     ui->nameVersionLabel->setText(QStringLiteral("%1 %2").arg(distroName, os.versionId));
 
-    // Set buildLabel from versionID (OSRelease)
-    ui->buildLabel->setText(os.versionId);
+    // Set buildLabel from versionID
+    QString versionId = cg.readEntry("Version", os.versionId);
+    ui->buildLabel->setText(versionId);
 
     QString url = cg.readEntry("Website", os.homeUrl);
     if (url.isEmpty())
