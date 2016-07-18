@@ -137,6 +137,10 @@ void Module::load()
     QString versionId = cg.readEntry("Version", os.versionId);
     ui->buildLabel->setText(versionId);
 
+    // Set OS Version label
+    QString osVersion = cg.readEntry("OSVersion");
+    ui->osVersionLabel->setText(osVersion);
+
     QString url = cg.readEntry("Website", os.homeUrl);
     if (url.isEmpty())
         ui->urlLabel->hide();
