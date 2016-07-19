@@ -134,12 +134,14 @@ void Module::load()
     ui->nameVersionLabel->setText(QStringLiteral("%1 %2").arg(distroName, os.versionId));
 
     // Set buildLabel from versionID
-    QString versionId = cg.readEntry("Version", os.versionId);
+    QString versionId = cg.readEntry("BuildStamp");
     ui->buildLabel->setText(versionId);
 
     // Set OS Version label
-    QString osVersion = cg.readEntry("OSVersion");
-    ui->osVersionLabel->setText(osVersion);
+    QString namedRelease = QString("%1 %2 - %3").arg(distroName,
+                                                     cg.readEntry("Version"),
+                                                     cg.readEntry("Release"));
+    ui->namedReleaseLabel->setText(namedRelease);
 
     QString url = cg.readEntry("Website", os.homeUrl);
     if (url.isEmpty())
