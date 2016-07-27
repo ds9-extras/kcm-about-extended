@@ -59,6 +59,19 @@ static qlonglong calculateTotalRam()
     return ret;
 }
 
+static qlonglong calculateTotalSwap()
+{
+    qlonglong ret = -1;
+#ifdef Q_OS_LINUX
+    struct sysinfo info;
+    if (sysinfo(&info) == 0)
+        // manpage "sizes are given as multiples of mem_unit bytes"
+        ret = info.totalswap * info.mem_unit;
+#endif
+    return ret;
+}
+
+
 Module::Module(QWidget *parent, const QVariantList &args) :
     KCModule(parent, args),
     ui(new Ui::Module)
@@ -215,9 +228,18 @@ void Module::load()
                              ? i18nc("@label %1 is the formatted amount of system memory (e.g. 7,7 GiB)",
                                      "%1 of RAM", KFormat().formatByteSize(totalRam))
                              : i18nc("Unknown amount of RAM", "Unknown"));
+
+     const qlonglong totalSwap = calculateTotalSwap();
+     ui->swapAmount->setText(totalSwap > 0
+                              ? i18nc("@label %1 is the formatted amount of system swap (e.g. 7,7 GiB)",
+                                      "%1 of Swap", KFormat().formatByteSize(totalSwap))
+                              : i18nc("Unknown amount of RAM", "Unknown"));
+
+
     OpenGLInfo openglInfo;
     ui->openglLabel->setText(openglInfo.openGLRenderer);
     ui->openglDriverLabel->setText(openglInfo.kwinDriver);
+    ui->mesaVersionLabel->setText(openglInfo.mesaVersion);
 
     if (!openglInfo.displayServerVersion.isEmpty() && !openglInfo.displayServerVersion.isNull()) {
       ui->displayServerVersionLabel->setText(openglInfo.displayServerVersion);

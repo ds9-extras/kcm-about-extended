@@ -34,6 +34,7 @@ OpenGLInfo::OpenGLInfo()
 
     openGLRenderer = QString::fromUtf8(platform->glRendererString());
     openGLVersion = QString::fromUtf8(platform->glVersionString());
+    mesaVersion = KWin::GLPlatform::versionToString(platform->mesaVersion());
     if (platform->driver() == KWin::Driver::Driver_Unknown) {
       kwinDriver = (char *) glGetString(GL_VENDOR);
     } else {

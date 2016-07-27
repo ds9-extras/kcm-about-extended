@@ -30,4 +30,5 @@ public:
   QString kwinDriver;
   QString displayServerVersion;
   QString waylandVersion;
+  QString mesaVersion;
 };
