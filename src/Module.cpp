@@ -144,7 +144,7 @@ void Module::load()
     // For example OS Ubuntu may be rebranded as Kubuntu. Also Kubuntu Active
     // as a product brand is different from Kubuntu.
     QString distroName = cg.readEntry("Name", os.name);
-    ui->nameVersionLabel->setText(QStringLiteral("%1 %2").arg(distroName, os.versionId));
+    ui->nameVersionLabel->setText(QStringLiteral("%1").arg(distroName));
 
     // Set buildLabel from versionID
     QString versionId = cg.readEntry("BuildStamp");
