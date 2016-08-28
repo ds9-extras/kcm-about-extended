@@ -151,7 +151,7 @@ void Module::load()
     ui->buildLabel->setText(versionId);
 
     // Set OS Version label
-    QString namedRelease = QString("%1 %2 - %3").arg(distroName,
+    QString namedRelease = QString("%1 %2 \"%3\"").arg(distroName,
                                                      cg.readEntry("Version"),
                                                      cg.readEntry("Release"));
     ui->namedReleaseLabel->setText(namedRelease);
