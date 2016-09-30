@@ -147,7 +147,7 @@ void Module::load()
     ui->nameVersionLabel->setText(QStringLiteral("%1").arg(distroName));
 
     // Set buildLabel from versionID
-    QString versionId = cg.readEntry("BuildStamp");
+    QString versionId = cg.readEntry("BuildStamp", os.buildId);
     ui->buildLabel->setText(versionId);
 
     // Set OS Version label
