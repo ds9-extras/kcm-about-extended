@@ -151,9 +151,13 @@ void Module::load()
     ui->buildLabel->setText(versionId);
 
     // Set OS Version label
-    QString namedRelease = QString("%1 %2 \"%3\"").arg(distroName,
-                                                     cg.readEntry("Version"),
-                                                     cg.readEntry("Release"));
+    QString namedRelease;
+    namedRelease = os.prettyName;
+    if (namedRelease.isEmpty()) {
+      namedRelease = QString("%1 %2 \"%3\"").arg(distroName,
+                                                 cg.readEntry("Version"),
+                                                 cg.readEntry("Release"));
+    }
     ui->namedReleaseLabel->setText(namedRelease);
 
     QString url = cg.readEntry("Website", os.homeUrl);
