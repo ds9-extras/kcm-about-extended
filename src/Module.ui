@@ -199,7 +199,7 @@
        <item row="11" column="3">
         <widget class="QLabel" name="apps">
          <property name="text">
-          <string>KDE Apps Version</string>
+          <string>KDE Apps Version:</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
