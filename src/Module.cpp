@@ -152,11 +152,12 @@ void Module::load()
 
     // Set OS Version label
     QString namedRelease;
-    namedRelease = os.prettyName;
-    if (namedRelease.isEmpty()) {
+    if (cg.hasKey("Version") && cg.hasKey("Release")) {
       namedRelease = QString("%1 %2 \"%3\"").arg(distroName,
                                                  cg.readEntry("Version"),
                                                  cg.readEntry("Release"));
+    } else {
+      namedRelease = os.prettyName;
     }
     ui->namedReleaseLabel->setText(namedRelease);
 
