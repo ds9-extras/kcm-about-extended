@@ -252,6 +252,8 @@ void Module::load()
       ui->displayServerVersion->setHidden(true);
     }
 
+    networkStatus();
+    
     connect(NetworkManager::notifier(), &NetworkManager::Notifier::connectivityChanged, this, &Module::networkStatus);
 }
 
