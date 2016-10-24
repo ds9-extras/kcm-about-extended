@@ -253,7 +253,7 @@ void Module::load()
     }
 
     networkStatus();
-    
+
     connect(NetworkManager::notifier(), &NetworkManager::Notifier::connectivityChanged, this, &Module::networkStatus);
 }
 
