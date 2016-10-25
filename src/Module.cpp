@@ -25,6 +25,7 @@
 #include <QIcon>
 #include <QStandardPaths>
 #include <QDebug>
+#include <QX11Info>
 
 #include <KAboutData>
 #include <KConfig>
@@ -99,6 +100,9 @@ Module::Module(QWidget *parent, const QVariantList &args) :
     font.setPixelSize(24);
     font.setBold(true);
     ui->nameVersionLabel->setFont(font);
+
+    // NOTE: Required for KWin to properly get the display server version
+    qApp->setProperty("x11Connection", QVariant::fromValue<void*>(QX11Info::connection()));
 
     ui->urlLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
 

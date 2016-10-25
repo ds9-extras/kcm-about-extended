@@ -22,12 +22,6 @@
 
 class OpenGLInfo
 {
-private:
-  inline qint64 kVersionNumber(qint64 major, qint64 minor, qint64 patch = 0)
-{
-    return ((major & 0xffff) << 32) | ((minor & 0xffff) << 16) | (patch & 0xffff);
-}
-  qint64 getXServerVersion();
 public:
   OpenGLInfo();
   QString openGLVendor;

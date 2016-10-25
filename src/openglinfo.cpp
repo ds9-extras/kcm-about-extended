@@ -38,33 +38,12 @@ OpenGLInfo::OpenGLInfo()
     } else {
       kwinDriver = KWin::GLPlatform::driverToString(platform->driver());
     }
-    //FIXME: This will fail on Wayland systems
-    displayServerVersion = KWin::GLPlatform::versionToString(getXServerVersion());
+
+    displayServerVersion = KWin::GLPlatform::versionToString(platform->serverVersion());
   }
   else {
       qCritical() <<"Error: makeCurrent() failed\n";
   }
 
   context.doneCurrent();
-}
-
-qint64 OpenGLInfo::getXServerVersion()
-{
-    qint64 major, minor, patch;
-    major = 0;
-    minor = 0;
-    patch = 0;
-
-    if (xcb_connection_t *c = QX11Info::connection()) {
-        auto setup = xcb_get_setup(c);
-        const QByteArray vendorName(xcb_setup_vendor(setup), xcb_setup_vendor_length(setup));
-        if (vendorName.contains("X.Org")) {
-            const int release = setup->release_number;
-            major = (release / 10000000);
-            minor = (release /   100000) % 100;
-            patch = (release /     1000) % 100;
-        }
-    }
-
-    return kVersionNumber(major, minor, patch);
 }
