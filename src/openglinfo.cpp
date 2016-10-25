@@ -6,6 +6,7 @@
 #include <QOpenGLContext>
 #include <QSurfaceFormat>
 #include <QOffscreenSurface>
+#include <QX11Info>
 
 OpenGLInfo::OpenGLInfo()
 {
@@ -20,7 +21,7 @@ OpenGLInfo::OpenGLInfo()
   if (context.makeCurrent(&surface)) {
     KWin::GLPlatform *platform = KWin::GLPlatform::instance();
 
-    if (context.isOpenGLES()) {
+    if (context.isOpenGLES() || !QX11Info::isPlatformX11()) {
       platform->detect(KWin::EglPlatformInterface);
     } else {
       platform->detect(KWin::GlxPlatformInterface);
