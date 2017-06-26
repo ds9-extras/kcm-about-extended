@@ -255,10 +255,6 @@ void Module::load()
     } else {
       ui->displayServerVersion->setHidden(true);
     }
-
-    networkStatus();
-
-    connect(NetworkManager::notifier(), &NetworkManager::Notifier::connectivityChanged, this, &Module::networkStatus);
 }
 
 void Module::save()
@@ -307,20 +303,4 @@ QString Module::appsVersion() const
       pclose(fd1);
   }
   return kdeapps_version;
-}
-
-void Module::networkStatus()
-{
-  NetworkManager::Connectivity connectivity = NetworkManager::connectivity();
-  switch (connectivity) {
-     case NetworkManager::Full:
-         ui->networkLabel->setText(i18n("You are online"));
-         break;
-     case NetworkManager::NoConnectivity:
-         ui->networkLabel->setText(i18n("You are offline"));
-         break;
-    default:
-        ui->networkLabel->setText(i18n("Network connectivity is unknown"));
-        break;
-  }
 }

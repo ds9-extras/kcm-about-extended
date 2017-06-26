@@ -32,13 +32,6 @@
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="48" column="4">
-        <widget class="QLabel" name="buildLabel">
-         <property name="text">
-          <string>{BuildVersion}</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="7">
         <spacer name="horizontalSpacer_7">
          <property name="orientation">
@@ -59,7 +52,7 @@
          </property>
         </widget>
        </item>
-       <item row="51" column="4">
+       <item row="50" column="4">
         <spacer name="verticalSpacer_7">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -112,7 +105,7 @@
          </property>
         </widget>
        </item>
-       <item row="51" column="5">
+       <item row="50" column="5">
         <spacer name="verticalSpacer_4">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -132,22 +125,18 @@
          </property>
         </widget>
        </item>
-       <item row="46" column="3">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>OS Type:</string>
+       <item row="50" column="7">
+        <spacer name="verticalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
          </property>
-        </widget>
-       </item>
-       <item row="44" column="4">
-        <widget class="QLabel" name="networkLabel">
-         <property name="text">
-          <string>{OnlineStatus}</string>
-         </property>
-        </widget>
+        </spacer>
        </item>
        <item row="11" column="4">
         <widget class="QLabel" name="appsLabel">
@@ -166,7 +155,7 @@
          </property>
         </widget>
        </item>
-       <item row="51" column="3">
+       <item row="50" column="3">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -186,19 +175,6 @@
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="45" column="4">
-        <widget class="QLabel" name="label_7">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>OS</string>
          </property>
         </widget>
        </item>
@@ -305,31 +281,15 @@
          </property>
         </spacer>
        </item>
-       <item row="43" column="4">
-        <widget class="QLabel" name="label_5">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
+       <item row="46" column="3">
+        <widget class="QLabel" name="label_8">
          <property name="text">
-          <string>Network</string>
+          <string>OS Version:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-       </item>
-       <item row="51" column="7">
-        <spacer name="verticalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item row="43" column="7">
         <widget class="QLabel" name="networkLogo">
@@ -500,13 +460,6 @@
          </property>
         </widget>
        </item>
-       <item row="46" column="4">
-        <widget class="QLabel" name="bitsLabel">
-         <property name="text">
-          <string notr="true">{QtArchitecutre}</string>
-         </property>
-        </widget>
-       </item>
        <item row="21" column="4">
         <widget class="QLabel" name="label">
          <property name="font">
@@ -520,33 +473,6 @@
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="44" column="3">
-        <widget class="QLabel" name="network">
-         <property name="text">
-          <string>Network Status:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="47" column="3">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>OS Version:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="47" column="4">
-        <widget class="QLabel" name="namedReleaseLabel">
-         <property name="text">
-          <string>{OSVersion}</string>
          </property>
         </widget>
        </item>
@@ -591,16 +517,6 @@
          </property>
         </widget>
        </item>
-       <item row="48" column="3">
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>Build Version:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
        <item row="32" column="3">
         <widget class="QLabel" name="memory">
          <property name="text">
@@ -618,6 +534,60 @@
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="45" column="3">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>OS Type:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="47" column="4">
+        <widget class="QLabel" name="buildLabel">
+         <property name="text">
+          <string>{BuildVersion}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="46" column="4">
+        <widget class="QLabel" name="namedReleaseLabel">
+         <property name="text">
+          <string>{OSVersion}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="45" column="4">
+        <widget class="QLabel" name="bitsLabel">
+         <property name="text">
+          <string notr="true">{QtArchitecutre}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="47" column="3">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Build Version:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="43" column="4">
+        <widget class="QLabel" name="label_7">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>OS</string>
          </property>
         </widget>
        </item>
