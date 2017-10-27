@@ -32,6 +32,26 @@
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
+       <item row="52" column="7">
+        <spacer name="verticalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="11" column="4">
+        <widget class="QLabel" name="appsLabel">
+         <property name="text">
+          <string>{AppsVersion}</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="7">
         <spacer name="horizontalSpacer_7">
          <property name="orientation">
@@ -52,7 +72,7 @@
          </property>
         </widget>
        </item>
-       <item row="50" column="4">
+       <item row="52" column="4">
         <spacer name="verticalSpacer_7">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -105,7 +125,7 @@
          </property>
         </widget>
        </item>
-       <item row="50" column="5">
+       <item row="52" column="5">
         <spacer name="verticalSpacer_4">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -118,33 +138,6 @@
          </property>
         </spacer>
        </item>
-       <item row="14" column="4">
-        <widget class="QLabel" name="kernelLabel">
-         <property name="text">
-          <string notr="true">{KernelName}</string>
-         </property>
-        </widget>
-       </item>
-       <item row="50" column="7">
-        <spacer name="verticalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="11" column="4">
-        <widget class="QLabel" name="appsLabel">
-         <property name="text">
-          <string>{AppsVersion}</string>
-         </property>
-        </widget>
-       </item>
        <item row="11" column="3">
         <widget class="QLabel" name="apps">
          <property name="text">
@@ -155,7 +148,7 @@
          </property>
         </widget>
        </item>
-       <item row="50" column="3">
+       <item row="52" column="3">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -400,16 +393,6 @@
          </property>
         </spacer>
        </item>
-       <item row="14" column="3">
-        <widget class="QLabel" name="kernel">
-         <property name="text">
-          <string>Kernel Version:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
        <item row="32" column="4">
         <widget class="QLabel" name="memoryLabel">
          <property name="text">
@@ -588,6 +571,23 @@
          </property>
          <property name="text">
           <string>OS</string>
+         </property>
+        </widget>
+       </item>
+       <item row="48" column="3">
+        <widget class="QLabel" name="kernel">
+         <property name="text">
+          <string>Kernel Version:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="48" column="4">
+        <widget class="QLabel" name="kernelLabel">
+         <property name="text">
+          <string notr="true">{KernelName}</string>
          </property>
         </widget>
        </item>
